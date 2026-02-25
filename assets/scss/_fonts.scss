@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Allerta Stencil';
+  font-style: normal;
+  font-weight: 400;
+  src: url('~/public/fonts/AllertaStencil-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/public/fonts/DMSans-Regular.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/public/fonts/DMSans-Medium.woff') format('woff');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('/public/fonts/DMSans-Bold.woff') format('woff');
+  font-display: swap;
+}
