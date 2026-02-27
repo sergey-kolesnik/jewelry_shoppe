@@ -12,7 +12,7 @@ export const useApiFetch = <DataT = unknown>(request: string, options?: UseFetch
   }
 
   const defaults: UseFetchOptions<DataT> = {
-    baseURL: API_BASE_URL,
+    baseURL: API_BASE_URL.value,
     key: request + JSON.stringify(options?.params),
     headers: {
       'Content-Type': 'application/json',
