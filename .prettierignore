@@ -1,0 +1,5 @@
+.prettierignore
+.gitignore
+.husky/**
+public/fonts/**
+.github/workflows/**

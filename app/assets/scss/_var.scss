@@ -1,0 +1,24 @@
+//breakpoints
+$breakpoint-xs: 0px;
+$breakpoint-s: 320px;
+$breakpoint-m: 768px;
+$breakpoint-l: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+//Fonts
+$primary-font-family: 'Allerta Stencil';
+$secondary-font-family: 'DM Sans';
+$font-weights: (
+  regular: 400,
+  medium: 500,
+  bold: 700,
+);
+
+//color
+$accent-color: #a18a68;
+$white-color: #ffffff;
+$black-color: #000000;
+$dark-gray-color: #707070;
+$gray-color: #d8d8d8;
+$light-gray-color: #efefef;
