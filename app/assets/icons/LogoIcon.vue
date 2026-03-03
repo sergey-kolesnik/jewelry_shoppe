@@ -10,3 +10,9 @@
     />
   </svg>
 </template>
+
+<style scoped lang="scss">
+  svg path:nth-of-type(1) {
+    fill: $accent-color !important;
+  }
+</style>
