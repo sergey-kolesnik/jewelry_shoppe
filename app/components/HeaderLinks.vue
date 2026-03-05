@@ -13,9 +13,26 @@
   </nav>
 </template>
 
-
-<style ts="scss" scoped>
-    .nav__list {
-        display: flex;
+<style lang="scss" scoped>
+  .nav {
+    &__list {
+      flex: 1;
+      display: flex;
+      justify-content: center;
     }
+
+    &__item:not(:last-child) {
+      margin-right: 64px;
+    }
+
+    &__item:last-child {
+      margin-right: 48px;
+      padding-right: 48px;
+      border-right: 1px solid $dark-gray-color;
+    }
+
+    &__link {
+      @include text-style(16px, $black-color, 27px);
+    }
+  }
 </style>

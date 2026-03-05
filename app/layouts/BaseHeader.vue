@@ -6,19 +6,43 @@
 
 <template>
   <header class="header">
-    <div class="wrapper header__wrapper">
-      <div class="container header__container">
+    <div class="container header__container">
+      <div class="header__line">
         <LogoIcon class="header__logo" />
-        <HeaderLinks class="header__links" />
-        <HeaderIcons class="header__icons"/>
+        <div class="header__right">
+          <HeaderLinks class="header__links" />
+          <HeaderIcons class="header__icons" />
+        </div>
       </div>
     </div>
   </header>
 </template>
 
 <style scoped lang="scss">
-    .header__container {
-        display: flex;
-        flex-direction: row;
+  .header {
+    padding-top: 64px;
+
+    &__logo {
+      min-width: 158px;
     }
+
+    &__right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+    }
+
+    &__icons {
+      display: flex;
+    }
+
+    &__line {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-bottom: 17px;
+      width: 100%;
+      border-bottom: 1px solid $gray-color;
+    }
+  }
 </style>
