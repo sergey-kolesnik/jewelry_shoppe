@@ -27,9 +27,9 @@
     }
 
     &__right {
-      margin-left: auto;
       display: flex;
       align-items: center;
+      margin-left: auto;
     }
 
     &__icons {
@@ -40,8 +40,8 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      padding-bottom: 17px;
       width: 100%;
+      padding-bottom: 17px;
       border-bottom: 1px solid $gray-color;
     }
   }

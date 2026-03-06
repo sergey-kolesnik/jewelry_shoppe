@@ -16,8 +16,8 @@
 <style lang="scss" scoped>
   .nav {
     &__list {
-      flex: 1;
       display: flex;
+      flex: 1;
       justify-content: center;
     }
 
@@ -26,8 +26,8 @@
     }
 
     &__item:last-child {
-      margin-right: 48px;
       padding-right: 48px;
+      margin-right: 48px;
       border-right: 1px solid $dark-gray-color;
     }
 
