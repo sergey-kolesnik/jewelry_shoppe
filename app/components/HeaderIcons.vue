@@ -1,13 +1,15 @@
 <script lang="ts" setup>
+  import type { Component } from 'vue'
+
   import SearchIcon from '~/assets/icons/SearchIcon.vue'
   import CartIcon from '~/assets/icons/CartIcon.vue'
   import UserIcon from '~/assets/icons/UserIcon.vue'
+
+  const icons: Component[] = [SearchIcon, CartIcon, UserIcon]
 </script>
 
 <template>
-  <SearchIcon class="header__icon" />
-  <CartIcon class="header__icon" />
-  <UserIcon class="header__icon" />
+  <component :is="icon" v-for="(icon, index) in icons" :key="index" class="header__icon" />
 </template>
 
 <style lang="scss" scoped>
