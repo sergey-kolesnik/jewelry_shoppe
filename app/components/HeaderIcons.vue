@@ -39,8 +39,8 @@
   @media (max-width: $breakpoint-s) {
     &__icon:nth-child(2) {
       display: inline-block;
-      margin-right: 16px;
       min-width: 18px;
+      margin-right: 16px;
     }
   }
 }
