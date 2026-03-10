@@ -1,8 +1,13 @@
 <script lang="ts" setup>
   import LogoIcon from '@/assets/icons/LogoIcon.vue'
+  import { ref } from 'vue'
   import HeaderLinks from '~/components/HeaderLinks.vue'
   import HeaderIcons from '~/components/HeaderIcons.vue'
   import BurgerIcon from '~/assets/icons/BurgerIcon.vue'
+  import BasePopup from '~/components/BasePopup.vue';
+  import SearchMobile from '~/components/SearchMobile.vue'
+
+  const isMenuOpen = ref(false)
 </script>
 
 <template>
@@ -13,11 +18,14 @@
         <div class="header__right">
           <HeaderLinks class="header__links" />
           <HeaderIcons class="header__icons" />
-          <BurgerIcon class="header__burger" />
+          <BurgerIcon class="header__burger"  @click="isMenuOpen=!isMenuOpen"/>
         </div>
       </div>
+      <SearchMobile class="header__search-mobile" />
     </div>
   </header>
+
+  <BasePopup v-if="isMenuOpen"/> 
 </template>
 
 <style scoped lang="scss">
@@ -71,5 +79,15 @@
         border-bottom: none;
       }
     }
+
+    &__search-mobile {
+      display: none;
+
+      @media (max-width: $breakpoint-s) {
+        display: block;
+        width: 100%
+      }
+    }
+
   }
 </style>

@@ -19,6 +19,7 @@
     &__icon {
       position: absolute;
       left: 10px;
+      bottom: 10px;
       width: 12px;
       height: 12px;
       color: $dark-gray-color;

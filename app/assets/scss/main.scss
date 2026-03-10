@@ -2,6 +2,10 @@
 @use 'var' as *;
 @use 'normilize';
 
+html {
+  box-sizing: border-box;
+}
+
 body {
   min-width: 320px;
   font-family: $secondary-font-family, sans-serif;
