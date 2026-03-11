@@ -19,29 +19,29 @@
 </template>
 
 <style lang="scss" scoped>
-.header {
-  &__icon {
-    min-width: 21px;
+  .header {
+    &__icon {
+      min-width: 21px;
+
+      @media (max-width: $breakpoint-s) {
+        display: none;
+      }
+    }
+
+    &__icon:not(:last-child) {
+      margin-right: 39px;
+
+      @media (max-width: $breakpoint-s) {
+        margin-right: 0;
+      }
+    }
 
     @media (max-width: $breakpoint-s) {
-      display: none;
+      &__icon:nth-child(2) {
+        display: inline-block;
+        min-width: 18px;
+        margin-right: 16px;
+      }
     }
   }
-
-  &__icon:not(:last-child) {
-    margin-right: 39px;
-
-    @media (max-width: $breakpoint-s) {
-      margin-right: 0;
-    }
-  }
-
-  @media (max-width: $breakpoint-s) {
-    &__icon:nth-child(2) {
-      display: inline-block;
-      min-width: 18px;
-      margin-right: 16px;
-    }
-  }
-}
 </style>

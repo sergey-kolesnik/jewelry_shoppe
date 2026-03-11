@@ -1,7 +1,12 @@
+import type { Component } from 'vue'
+import LogoutIcon from '~/assets/icons/LogoutIcon.vue'
+import AccountIcon from '~/assets/icons/AccountIcon.vue'
+
 export interface NavLinkHeader {
   readonly id: string
   readonly label: string
   readonly href: string
+  readonly icon?: Component
 }
 
 export const NAVIGATION_ITEMS_HEADER: NavLinkHeader[] = [
@@ -9,3 +14,15 @@ export const NAVIGATION_ITEMS_HEADER: NavLinkHeader[] = [
   { id: 'blog', label: 'Blog', href: '/blog' },
   { id: 'our-story', label: 'Our Story', href: '/our-story' },
 ] as const
+
+export const NAVIGATION_ITEMS_HEADER_MOBILE: NavLinkHeader[] = [
+  ...NAVIGATION_ITEMS_HEADER,
+  { id: 'contact', label: 'Contact', href: '/contact' },
+  { id: 'term', label: 'Terms Of Services', href: '/term' },
+  { id: 'shipping', label: 'Shipping And Returns', href: '/shipping' },
+]
+
+export const NAVIGATION_ACTIONS_MOBILE: NavLinkHeader[] = [
+  { id: 'account', label: 'My account', href: '/account', icon: AccountIcon },
+  { id: 'logout', label: 'Logout', href: '/logout', icon: LogoutIcon },
+]
