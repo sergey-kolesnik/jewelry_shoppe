@@ -22,6 +22,7 @@
   .header {
     &__icon {
       min-width: 21px;
+      cursor: pointer;
 
       @media (max-width: $breakpoint-s) {
         display: none;
