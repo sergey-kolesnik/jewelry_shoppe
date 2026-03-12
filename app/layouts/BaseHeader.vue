@@ -10,7 +10,7 @@
   import {
     NAVIGATION_ACTIONS_MOBILE,
     NAVIGATION_ITEMS_HEADER_MOBILE,
-  } from '~/types/navigationHeader'
+  } from '~/constants/navigationHeader'
 
   const isMenuOpen = ref(false)
 </script>

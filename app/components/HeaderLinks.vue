@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-  import { NAVIGATION_ITEMS_HEADER } from '@/types/navigationHeader'
+  import { NAVIGATION_ITEMS_HEADER } from '@/constants/navigationHeader'
 </script>
 <template>
   <nav class="header__nav nav">
