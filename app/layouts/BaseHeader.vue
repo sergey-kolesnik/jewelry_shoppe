@@ -110,16 +110,6 @@
       }
     }
 
-    &__search-mobile {
-      display: none;
-
-      @media (max-width: $breakpoint-s) {
-        display: block;
-        width: 100%;
-        margin-bottom: 39px;
-      }
-    }
-
     &__links-mobile {
       border-bottom: 1px solid $gray-color;
     }

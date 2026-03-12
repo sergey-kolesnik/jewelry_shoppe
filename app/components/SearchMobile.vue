@@ -12,9 +12,13 @@
 <style lang="scss" scoped>
   .search {
     position: relative;
-    display: flex;
+    display: none;
     align-items: center;
     width: 100%;
+
+    @media (max-width: $breakpoint-s) {
+      display: flex;
+    }
 
     &__icon {
       position: absolute;
