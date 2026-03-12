@@ -1,0 +1,16 @@
+@use 'var' as *;
+@use 'sass:map';
+
+@mixin text-style(
+  $size,
+  $color,
+  $line-height,
+  $weight: map.get($font-weights, regular),
+  $family: $secondary-font-family
+) {
+  font-family: $family;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+  color: $color;
+}

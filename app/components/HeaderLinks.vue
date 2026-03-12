@@ -1,0 +1,38 @@
+<script lang="ts" setup>
+  import { NAVIGATION_ITEMS_HEADER } from '@/constants/navigationHeader'
+</script>
+<template>
+  <nav class="header__nav nav">
+    <ul class="nav__list">
+      <li v-for="item in NAVIGATION_ITEMS_HEADER" :key="item.id" class="nav__item">
+        <a :href="item.href" class="nav__link">
+          {{ item.label }}
+        </a>
+      </li>
+    </ul>
+  </nav>
+</template>
+
+<style lang="scss" scoped>
+  .nav {
+    &__list {
+      display: flex;
+      flex: 1;
+      justify-content: center;
+    }
+
+    &__item:not(:last-child) {
+      margin-right: 64px;
+    }
+
+    &__item:last-child {
+      padding-right: 48px;
+      margin-right: 48px;
+      border-right: 1px solid $dark-gray-color;
+    }
+
+    &__link {
+      @include text-style(16px, $black-color, 27px);
+    }
+  }
+</style>
