@@ -12,13 +12,3 @@
     />
   </svg>
 </template>
-
-<style lang="scss" scoped>
-  svg path:nth-child(1) {
-    fill: $black-color;
-  }
-
-  svg path:nth-child(2) {
-    fill: $white-color;
-  }
-</style>

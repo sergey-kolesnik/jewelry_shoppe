@@ -3,7 +3,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ['~/assets/scss/main.scss'],
+  css: ['~/assets/scss/normalize.scss', '~/assets/scss/main.scss'],
   vite: {
     css: {
       preprocessorOptions: {
