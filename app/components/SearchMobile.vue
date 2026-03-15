@@ -16,7 +16,7 @@
     align-items: center;
     width: 100%;
 
-    @media (max-width: $breakpoint-s) {
+    @media (max-width: $breakpoint-m) {
       display: flex;
     }
 

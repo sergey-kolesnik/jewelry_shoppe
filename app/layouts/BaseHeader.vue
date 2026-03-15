@@ -65,7 +65,7 @@
     &__logo {
       width: 158px;
 
-      @media (max-width: $breakpoint-s) {
+      @media (max-width: $breakpoint-m) {
         width: 99px;
       }
     }
@@ -77,13 +77,18 @@
     }
 
     &__links {
-      @media (max-width: $breakpoint-s) {
+      @media (max-width: $breakpoint-m) {
         display: none;
       }
     }
 
     &__icons {
       display: flex;
+      gap: 39px;
+
+      @media (max-width: $breakpoint-l) {
+        gap: 24px;
+      }
     }
 
     &__burger,
@@ -92,7 +97,7 @@
       width: 20px;
       cursor: pointer;
 
-      @media (max-width: $breakpoint-s) {
+      @media (max-width: $breakpoint-m) {
         display: block;
       }
     }
@@ -105,7 +110,7 @@
       padding-bottom: 17px;
       border-bottom: 1px solid $gray-color;
 
-      @media (max-width: $breakpoint-s) {
+      @media (max-width: $breakpoint-m) {
         border-bottom: none;
       }
     }

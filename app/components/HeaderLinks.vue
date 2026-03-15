@@ -18,12 +18,17 @@
     &__list {
       display: flex;
       flex: 1;
+      gap: 64px;
       justify-content: center;
+
+      @media (max-width: $breakpoint-l) {
+        gap: 32px;
+      }
     }
 
-    &__item:not(:last-child) {
-      margin-right: 64px;
-    }
+    // &__item:not(:last-child) {
+    //   // margin-right: 64px;
+    // }
 
     &__item:last-child {
       padding-right: 48px;

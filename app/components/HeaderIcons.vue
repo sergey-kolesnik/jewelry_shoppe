@@ -24,20 +24,12 @@
       min-width: 21px;
       cursor: pointer;
 
-      @media (max-width: $breakpoint-s) {
+      @media (max-width: $breakpoint-m) {
         display: none;
       }
     }
 
-    &__icon:not(:last-child) {
-      margin-right: 39px;
-
-      @media (max-width: $breakpoint-s) {
-        margin-right: 0;
-      }
-    }
-
-    @media (max-width: $breakpoint-s) {
+    @media (max-width: $breakpoint-m) {
       &__icon:nth-child(2) {
         display: inline-block;
         min-width: 18px;
