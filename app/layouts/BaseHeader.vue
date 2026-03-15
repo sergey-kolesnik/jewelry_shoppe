@@ -135,5 +135,9 @@
     &header__action-label {
       @include text-style(20px, $black-color, 26px);
     }
+
+    &__popup {
+      position: relative;
+    }
   }
 </style>
