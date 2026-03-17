@@ -7,10 +7,11 @@
   import BasePopup from '~/components/BasePopup.vue'
   import SearchMobile from '~/components/SearchMobile.vue'
   import CloseIcon from '~/assets/icons/CloseIcon.vue'
-  import {
-    NAVIGATION_ACTIONS_MOBILE,
-    NAVIGATION_ITEMS_HEADER_MOBILE,
-  } from '~/constants/navigationHeader'
+  import HeaderMobileNav from '~/components/HeaderMobileNav.vue'
+  // import {
+  //   NAVIGATION_ACTIONS_MOBILE,
+  //   NAVIGATION_ITEMS_HEADER_MOBILE,
+  // } from '~/constants/navigationHeader'
 
   const isMenuOpen = ref(false)
 </script>
@@ -33,27 +34,7 @@
   </header>
   <div class="header__popup">
     <BasePopup v-if="isMenuOpen">
-      <ul class="header__links-mobile">
-        <li
-          v-for="item in NAVIGATION_ITEMS_HEADER_MOBILE"
-          :key="item.id"
-          class="header__item-mobile"
-        >
-          <a :href="item.href" class="header__link-mobile">
-            {{ item.label }}
-          </a>
-        </li>
-      </ul>
-      <ul class="header__actions-mobile">
-        <li v-for="item in NAVIGATION_ACTIONS_MOBILE" :key="item.id" class="header__actions-item">
-          <a href="" class="header__actions-link">
-            <component :is="item.icon" class="header__actions-icon" />
-            <span class="header__action-label">
-              {{ item.label }}
-            </span>
-          </a>
-        </li>
-      </ul>
+      <HeaderMobileNav />
     </BasePopup>
   </div>
 </template>
@@ -65,7 +46,7 @@
     &__logo {
       width: 158px;
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-l) {
         width: 99px;
       }
     }
@@ -77,7 +58,7 @@
     }
 
     &__links {
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-l) {
         display: none;
       }
     }
@@ -97,7 +78,7 @@
       width: 20px;
       cursor: pointer;
 
-      @media (max-width: $breakpoint-m) {
+      @media (max-width: $breakpoint-l) {
         display: block;
       }
     }
@@ -113,27 +94,6 @@
       @media (max-width: $breakpoint-m) {
         border-bottom: none;
       }
-    }
-
-    &__links-mobile {
-      border-bottom: 1px solid $gray-color;
-    }
-
-    &__item-mobile,
-    &__links-mobile,
-    &__actions-item {
-      margin-bottom: 24px;
-    }
-
-    &__actions-icon {
-      width: 18px;
-      height: 18px;
-      margin-right: 10px;
-    }
-
-    &header__link-mobile,
-    &header__action-label {
-      @include text-style(20px, $black-color, 26px);
     }
 
     &__popup {
