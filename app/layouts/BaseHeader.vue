@@ -50,7 +50,6 @@
     &__right {
       display: flex;
       align-items: center;
-      // margin-left: auto;
     }
 
     &__links {
@@ -83,7 +82,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: space-between;;
+      justify-content: space-between;
       width: 100%;
       padding-bottom: 17px;
       border-bottom: 1px solid $gray-color;
