@@ -1,12 +1,15 @@
 @use 'fonts';
 @use 'var' as *;
-@use 'normilize';
+
+html {
+  box-sizing: border-box;
+}
 
 body {
   min-width: 320px;
-  // font-family: $font;
+  font-family: $secondary-font-family, sans-serif;
   font-weight: 400;
-  // background-color: $body-back;
+  background-color: $white-color;
 }
 
 *,
@@ -53,21 +56,20 @@ figcaption {
 }
 
 .container {
-  width: 96%;
-  max-width: 346px;
+  min-width: 346px;
   padding: 0 16px;
   margin: 0 auto;
 
   @media (min-width: $breakpoint-m) {
-    max-width: 696px;
+    min-width: 696px;
     padding: 0 36px;
   }
   @media (min-width: $breakpoint-l) {
-    max-width: 936px;
+    min-width: 936px;
     padding: 0 36px;
   }
   @media (min-width: $breakpoint-xl) {
-    max-width: 1216px;
+    min-width: 1216px;
     padding: 0 112px;
   }
   @media (min-width: $breakpoint-xxl) {
