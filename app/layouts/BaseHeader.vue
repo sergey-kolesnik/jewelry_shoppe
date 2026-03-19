@@ -8,10 +8,6 @@
   import SearchMobile from '~/components/SearchMobile.vue'
   import CloseIcon from '~/assets/icons/CloseIcon.vue'
   import HeaderMobileNav from '~/components/HeaderMobileNav.vue'
-  // import {
-  //   NAVIGATION_ACTIONS_MOBILE,
-  //   NAVIGATION_ITEMS_HEADER_MOBILE,
-  // } from '~/constants/navigationHeader'
 
   const isMenuOpen = ref(false)
 </script>

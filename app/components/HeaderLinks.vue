@@ -26,10 +26,6 @@
       }
     }
 
-    // &__item:not(:last-child) {
-    //   // margin-right: 64px;
-    // }
-
     &__item:last-child {
       padding-right: 48px;
       margin-right: 48px;
