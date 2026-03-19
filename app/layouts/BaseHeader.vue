@@ -42,7 +42,7 @@
     &__logo {
       width: 158px;
 
-      @media (max-width: $breakpoint-l) {
+      @media (max-width: $breakpoint-m) {
         width: 99px;
       }
     }
@@ -50,11 +50,11 @@
     &__right {
       display: flex;
       align-items: center;
-      margin-left: auto;
+      // margin-left: auto;
     }
 
     &__links {
-      @media (max-width: $breakpoint-l) {
+      @media (max-width: $breakpoint-m) {
         display: none;
       }
     }
@@ -63,7 +63,7 @@
       display: flex;
       gap: 39px;
 
-      @media (max-width: $breakpoint-l) {
+      @media (max-width: $breakpoint-m) {
         gap: 24px;
       }
     }
@@ -74,7 +74,7 @@
       width: 20px;
       cursor: pointer;
 
-      @media (max-width: $breakpoint-l) {
+      @media (max-width: $breakpoint-m) {
         display: block;
       }
     }
@@ -83,6 +83,7 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      justify-content: space-between;;
       width: 100%;
       padding-bottom: 17px;
       border-bottom: 1px solid $gray-color;
