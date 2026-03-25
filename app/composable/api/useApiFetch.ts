@@ -16,6 +16,7 @@ export const useApiFetch = <DataT = unknown>(request: string, options?: UseFetch
     key: request + JSON.stringify(options?.params),
     headers: {
       'Content-Type': 'application/json',
+      'User-Agent': 'Mozilla/5.0',
       Authorization: authToken.value ? `Bearer ${authToken.value}` : '',
     },
   }

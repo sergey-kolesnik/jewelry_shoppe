@@ -14,6 +14,11 @@ export default defineNuxtConfig({
       },
     },
   },
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: import.meta.env.API_BASE_URL,
+    },
+  },
 
   modules: ['nuxt-swiper'],
 })
