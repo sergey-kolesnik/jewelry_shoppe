@@ -1,10 +1,10 @@
 import { useApiFetch } from '@/composable/api/useApiFetch'
-import type { ApiPhotosResponse } from '~/types/imageSlider.type'
+import type { Photo } from '~/types/imageSlider.type'
 
 export const useGetAllImages = (options: { limit?: number } = {}) => {
   const { limit } = options
 
-  return useApiFetch<ApiPhotosResponse>('/v1/sample-data/photos', {
+  return useApiFetch<Photo[]>('/v2/list', {
     params: {
       limit,
     },
