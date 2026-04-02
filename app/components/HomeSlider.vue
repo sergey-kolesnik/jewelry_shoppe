@@ -3,6 +3,8 @@
   import { useGetAllImages } from '~/composable/api/imagesSlider/useGetImagesSlider'
   import { Swiper, SwiperSlide } from 'swiper/vue'
   import { Pagination, Autoplay } from 'swiper/modules'
+  import SlideOverlay from './SlideOverlay.vue'
+
   const LIMIT_IMAGES = 10
   const { data } = await useGetAllImages({ limit: LIMIT_IMAGES })
   const photos = computed(() => data.value ?? [])
@@ -12,15 +14,17 @@
     <div class="container home-slider__container">
       <ClientOnly>
         <Swiper
+          class="home-slider__swiper"
           :modules="[Pagination, Autoplay]"
           :slides-per-view="1"
           :loop="true"
           :autoplay="{ delay: 3000 }"
           :pagination="{ clickable: true }"
         >
-          <SwiperSlide v-for="slide in photos" :key="slide.id">
+          <SwiperSlide v-for="slide in photos" :key="slide.id" class="home-slider__slide">
             <img :src="slide.download_url" :alt="slide.author" loading="lazy" />
           </SwiperSlide>
+          <SlideOverlay class="home-slider__overlay" />
         </Swiper>
       </ClientOnly>
     </div>
@@ -29,8 +33,8 @@
 
 <style lang="scss" scoped>
   .home-slider {
-    &__container {
-      // overflow: hidden;
+    &__swiper {
+      position: relative;
     }
   }
 
