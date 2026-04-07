@@ -35,13 +35,34 @@
   .home-slider {
     &__swiper {
       position: relative;
+      overflow: hidden;
     }
   }
 
   .swiper,
   .swiper-slide {
-    max-height: 646px;
+    height: 646px;
+    overflow: hidden;
     border-radius: 16px;
+
+    @media (max-width: $breakpoint-xl) {
+      height: 500px;
+    }
+
+    @media (max-width: $breakpoint-l) {
+      height: 450px;
+    }
+
+    @media (max-width: $breakpoint-m) {
+      height: 354px;
+    }
+  }
+
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   :deep(.swiper-pagination) {
@@ -49,14 +70,32 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: $breakpoint-m) {
+      bottom: 9px;
+    }
   }
 
   :deep(.swiper-pagination-bullet) {
     width: 9px;
     height: 9px;
+    margin: 0;
     outline-offset: -1px;
     background: $white-color;
     opacity: 1;
+
+    @media (max-width: $breakpoint-m) {
+      width: 4px;
+      height: 4px;
+    }
+  }
+
+  :deep(.swiper-pagination-bullet:not(:last-child)) {
+    margin-right: 14px;
+
+    @media (max-width: $breakpoint-m) {
+      margin-right: 9px;
+    }
   }
 
   :deep(.swiper-pagination-bullet-active) {
@@ -64,5 +103,10 @@
     height: 16px;
     background: transparent;
     border: 1px solid $white-color;
+
+    @media (max-width: $breakpoint-m) {
+      width: 7px;
+      height: 7px;
+    }
   }
 </style>
