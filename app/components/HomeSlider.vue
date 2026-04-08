@@ -5,6 +5,10 @@
   import { Pagination, Autoplay } from 'swiper/modules'
   import SlideOverlay from './SlideOverlay.vue'
 
+  import 'swiper/css'
+  import 'swiper/css/navigation'
+  import 'swiper/css/pagination'
+
   const LIMIT_IMAGES = 10
   const { data } = await useGetAllImages({ limit: LIMIT_IMAGES })
   const photos = computed(() => data.value ?? [])

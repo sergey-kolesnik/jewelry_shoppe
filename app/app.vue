@@ -7,7 +7,7 @@
   <div>
     <NuxtLayout>
       <BaseHeader />
+      <HomeSlider />
     </NuxtLayout>
-    <HomeSlider />
   </div>
 </template>

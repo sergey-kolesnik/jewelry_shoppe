@@ -3,13 +3,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: [
-    '~/assets/scss/normalize.scss',
-    '~/assets/scss/main.scss',
-    'swiper/css',
-    'swiper/css/navigation',
-    'swiper/css/pagination',
-  ],
+  css: ['~/assets/scss/normalize.scss', '~/assets/scss/main.scss'],
 
   vite: {
     css: {
