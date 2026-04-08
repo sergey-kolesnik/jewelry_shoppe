@@ -4,6 +4,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/scss/normalize.scss', '~/assets/scss/main.scss'],
+
   vite: {
     css: {
       preprocessorOptions: {
@@ -13,4 +14,11 @@ export default defineNuxtConfig({
       },
     },
   },
+  runtimeConfig: {
+    public: {
+      apiBaseUrl: import.meta.env.API_BASE_URL,
+    },
+  },
+
+  modules: ['nuxt-swiper'],
 })

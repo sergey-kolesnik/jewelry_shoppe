@@ -1,9 +1,13 @@
 <script lang="ts" setup>
   import BaseHeader from '@/layouts/BaseHeader.vue'
+  import HomeSlider from './components/HomeSlider.vue'
 </script>
 
 <template>
   <div>
-    <BaseHeader />
+    <NuxtLayout>
+      <BaseHeader />
+      <HomeSlider />
+    </NuxtLayout>
   </div>
 </template>
