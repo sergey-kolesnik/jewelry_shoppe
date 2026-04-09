@@ -4,19 +4,21 @@
   import { Swiper, SwiperSlide } from 'swiper/vue'
   import { Pagination, Autoplay } from 'swiper/modules'
   import SlideOverlay from './SlideOverlay.vue'
+  import BaseLoader from './BaseLoader.vue'
 
   import 'swiper/css'
   import 'swiper/css/navigation'
   import 'swiper/css/pagination'
 
   const LIMIT_IMAGES = 10
-  const { data } = await useGetAllImages({ limit: LIMIT_IMAGES })
+  const { data, pending } = await useGetAllImages({ limit: LIMIT_IMAGES })
   const photos = computed(() => data.value ?? [])
 </script>
 <template>
   <section class="home-slider">
     <div class="container home-slider__container">
-      <ClientOnly>
+      <BaseLoader v-if="pending" />
+      <ClientOnly v-else>
         <Swiper
           class="home-slider__swiper"
           :modules="[Pagination, Autoplay]"
