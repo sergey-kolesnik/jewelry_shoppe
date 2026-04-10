@@ -24,6 +24,8 @@
   .loader {
     width: 150px;
     height: 150px;
+    margin: 0 auto;
+    margin-top: 50px;
 
     @media (max-width: $breakpoint-m) {
       width: 75px;
