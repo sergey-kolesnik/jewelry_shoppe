@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-  import { computed } from 'vue'
+  import { ref, computed } from 'vue'
+
   import { useGetAllImages } from '~/composable/api/imagesSlider/useGetImagesSlider'
   import { Swiper, SwiperSlide } from 'swiper/vue'
   import { Pagination, Autoplay } from 'swiper/modules'
@@ -11,28 +12,32 @@
   import 'swiper/css/pagination'
 
   const LIMIT_IMAGES = 10
-  const { data, pending } = await useGetAllImages({ limit: LIMIT_IMAGES })
+  const loading = ref(true)
+  const { data, pending } = useGetAllImages({ limit: LIMIT_IMAGES })
   const photos = computed(() => data.value ?? [])
+  loading.value = pending.value
 </script>
 <template>
   <section class="home-slider">
     <div class="container home-slider__container">
-      <BaseLoader v-if="pending" />
-      <ClientOnly v-else>
-        <Swiper
-          class="home-slider__swiper"
-          :modules="[Pagination, Autoplay]"
-          :slides-per-view="1"
-          :loop="true"
-          :autoplay="{ delay: 3000 }"
-          :pagination="{ clickable: true }"
-        >
-          <SwiperSlide v-for="slide in photos" :key="slide.id" class="home-slider__slide">
-            <img :src="slide.download_url" :alt="slide.author" loading="lazy" />
-          </SwiperSlide>
-          <SlideOverlay class="home-slider__overlay" />
-        </Swiper>
-      </ClientOnly>
+      <div class="home-slider__viewport">
+        <BaseLoader v-if="loading" />
+        <ClientOnly v-else>
+          <Swiper
+            class="home-slider__swiper"
+            :modules="[Pagination, Autoplay]"
+            :slides-per-view="1"
+            :loop="true"
+            :autoplay="{ delay: 3000 }"
+            :pagination="{ clickable: true }"
+          >
+            <SwiperSlide v-for="slide in photos" :key="slide.id" class="home-slider__slide">
+              <img :src="slide.download_url" :alt="slide.author" loading="lazy" />
+            </SwiperSlide>
+            <SlideOverlay class="home-slider__overlay" />
+          </Swiper>
+        </ClientOnly>
+      </div>
     </div>
   </section>
 </template>
@@ -116,3 +121,4 @@
     }
   }
 </style>
+<!--  -->
