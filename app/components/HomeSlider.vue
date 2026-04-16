@@ -18,7 +18,7 @@
   loading.value = pending.value
 </script>
 <template>
-  <section class="home-slider">
+  <section class="home-slider section-page">
     <div class="container home-slider__container">
       <div class="home-slider__viewport">
         <BaseLoader v-if="loading" />
@@ -44,6 +44,8 @@
 
 <style lang="scss" scoped>
   .home-slider {
+    padding-top: 16px;
+
     &__swiper {
       position: relative;
       overflow: hidden;

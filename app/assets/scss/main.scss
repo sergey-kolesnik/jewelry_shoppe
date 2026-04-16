@@ -1,5 +1,6 @@
 @use 'fonts';
 @use 'var' as *;
+@use 'sass:map';
 
 html {
   box-sizing: border-box;
@@ -53,6 +54,14 @@ figcaption {
 
 .wrapper {
   width: 100vw;
+}
+
+.section-page {
+  padding-top: $layout-top-offset;
+}
+
+.section-title {
+  @include text-style(33px, $black-color, 43px, map.get($font-weights, medium));
 }
 
 .container {
