@@ -18,7 +18,7 @@
   loading.value = pending.value
 </script>
 <template>
-  <section class="home-slider section-page">
+  <section class="home-slider">
     <div class="container home-slider__container">
       <div class="home-slider__viewport">
         <BaseLoader v-if="loading" />
@@ -45,6 +45,11 @@
 <style lang="scss" scoped>
   .home-slider {
     padding-top: 16px;
+    margin-bottom: 90px;
+
+    @media (max-width: $breakpoint-m) {
+      margin-bottom: 21px;
+    }
 
     &__swiper {
       position: relative;
@@ -123,4 +128,3 @@
     }
   }
 </style>
-<!--  -->
