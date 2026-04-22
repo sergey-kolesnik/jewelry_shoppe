@@ -1,6 +1,5 @@
 <script lang="ts" setup>
   import { ref, computed } from 'vue'
-
   import { useGetAllImages } from '~/composable/api/imagesSlider/useGetImagesSlider'
   import { Swiper, SwiperSlide } from 'swiper/vue'
   import { Pagination, Autoplay } from 'swiper/modules'
@@ -13,9 +12,11 @@
 
   const LIMIT_IMAGES = 10
   const loading = ref(true)
-  const { data, pending } = useGetAllImages({ limit: LIMIT_IMAGES })
+  const { data } = useGetAllImages({ limit: LIMIT_IMAGES })
   const photos = computed(() => data.value ?? [])
-  loading.value = pending.value
+  setTimeout(() => {
+    loading.value = false
+  }, 3000)
 </script>
 <template>
   <section class="home-slider">

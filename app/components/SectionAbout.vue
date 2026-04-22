@@ -10,7 +10,10 @@
         enim. Proin placerat tortor lacus, ac&nbsp;sodales lectus placerat quis.
       </p>
       <h3 class="about__subtitle">Top trends</h3>
-      <img class="about__image" src="../assets/images/about.png" alt="" />
+      <picture>
+        <source media="(max-width: 768px)" srcset="../assets/images/aboutMobile.webp" />
+        <img class="about__image" src="../assets/images/about.webp" alt="" />
+      </picture>
       <p class="about__content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam placerat, augue a&nbsp;<br />volutpat
         hendrerit, sapien tortor faucibus augue, a&nbsp;maximus elit ex&nbsp;vitae libero. Sed quis
