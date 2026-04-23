@@ -38,7 +38,6 @@
 <style scoped lang="scss">
   .header {
     padding-top: 64px;
-    margin-bottom: 16px;
 
     &__logo {
       width: 158px;
