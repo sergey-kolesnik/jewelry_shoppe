@@ -12,7 +12,7 @@
   </ul>
   <ul class="header__actions-mobile">
     <li v-for="item in NAVIGATION_ACTIONS_MOBILE" :key="item.id" class="header__actions-item">
-      <a href="" class="header__actions-link">
+      <a :href="item.href" class="header__actions-link">
         <component :is="item.icon" class="header__actions-icon" />
         <span class="header__action-label">
           {{ item.label }}
