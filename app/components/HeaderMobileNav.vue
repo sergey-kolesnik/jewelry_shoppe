@@ -1,8 +1,5 @@
 <script lang="ts" setup>
-  import {
-    NAVIGATION_ITEMS_HEADER_MOBILE,
-    NAVIGATION_ACTIONS_MOBILE,
-  } from '~/constants/navigationHeader'
+  import { NAVIGATION_ITEMS_HEADER_MOBILE, NAVIGATION_ACTIONS_MOBILE } from '~/constants/navigation'
 </script>
 
 <template>
