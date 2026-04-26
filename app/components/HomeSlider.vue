@@ -28,7 +28,7 @@
             class="home-slider__swiper"
             :modules="[Pagination, Autoplay]"
             :slides-per-view="1"
-            :loop="true"
+            :loop="photos.length > 1"
             :autoplay="{ delay: 3000 }"
             :pagination="{ clickable: true }"
           >
