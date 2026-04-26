@@ -1,5 +1,8 @@
 <script lang="ts" setup>
   import { NAVIGATION_SECONDARY } from '~/constants/navigation'
+  import BaseInput from '~/components/BaseInput.vue'
+  import ArrowIcon from '~/assets/icons/ArrowIcon.vue'
+  import { SOCIAL_ICONS } from '~/constants/social'
 </script>
 
 <template>
@@ -18,7 +21,26 @@
             &copy;&nbsp;<b>2021&nbsp;Shelly.</b> Terms of&nbsp;use <b>and</b> privacy policy.
           </p>
         </div>
-        <div class="footer__right"></div>
+        <div class="footer__right">
+          <div class="footer__input">
+            <BaseInput
+              id="search"
+              type="email"
+              placeholder="Give an&nbsp;email, get the newsletter."
+              :buttonImage="ArrowIcon"
+            />
+          </div>
+          <div class="footer__social">
+            <a
+              v-for="link in SOCIAL_ICONS"
+              :key="link.id"
+              href="link.href"
+              class="footer__social-link"
+            >
+              <component :is="link.icon" class="footer__social-image" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </footer>
