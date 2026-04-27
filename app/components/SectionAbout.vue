@@ -25,6 +25,8 @@
 
 <style lang="scss" scoped>
   .about {
+    margin-bottom: 250px;
+
     &__container {
       width: 100%;
       width: 704px;

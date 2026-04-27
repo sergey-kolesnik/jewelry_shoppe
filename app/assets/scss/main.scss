@@ -52,6 +52,14 @@ figcaption {
   margin: 0;
 }
 
+input {
+  padding: 0;
+  outline: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
 .wrapper {
   width: 100vw;
 }
