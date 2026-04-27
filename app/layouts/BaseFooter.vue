@@ -24,21 +24,23 @@
         <div class="footer__right">
           <div class="footer__input">
             <BaseInput
-              id="search"
+              id="email"
               type="email"
               placeholder="Give an&nbsp;email, get the newsletter."
-              :buttonImage="ArrowIcon"
+              class="footer__field"
             />
+            <button class="footer__button">
+              <ArrowIcon />
+            </button>
           </div>
           <div class="footer__social">
-            <a
-              v-for="link in SOCIAL_ICONS"
-              :key="link.id"
-              href="link.href"
-              class="footer__social-link"
-            >
-              <component :is="link.icon" class="footer__social-image" />
-            </a>
+            <ul class="footer__social-list">
+              <li v-for="link in SOCIAL_ICONS" :key="link.id" class="footer__social-item">
+                <a :href="link.href" class="footer__social-link">
+                  <component :is="link.icon" class="footer__social-image" />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
@@ -49,7 +51,54 @@
 <style lang="scss" scoped>
   .footer {
     &__line {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 56px;
+      padding-bottom: 108px;
       border-top: 1px solid $gray-color;
+    }
+
+    &__links {
+      display: flex;
+      margin-bottom: 48px;
+    }
+
+    &__links-item:not(:last-child) {
+      margin-right: 41px;
+    }
+
+    &__link {
+      text-transform: uppercase;
+    }
+
+    &__link,
+    &__legal {
+      @include text-style(16px, $dark-gray-color, 27px);
+    }
+
+    &__input {
+      display: flex;
+      width: 396px;
+      padding-bottom: 13px;
+      margin-bottom: 50px;
+      border-bottom: 1px $black-color solid;
+    }
+
+    &__field:deep(.base-input__field) {
+      width: 371px;
+    }
+
+    &__field:deep(.base-input__field)::placeholder {
+      @include text-style(16px, $dark-gray-color, 27px);
+    }
+
+    &__social-list {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    &__social-item:not(:last-child) {
+      margin-right: 30px;
     }
   }
 </style>

@@ -14,9 +14,8 @@
         :id="props.id"
         :type="props.type"
         :placeholder="props.placeholder"
-        class="base-input__input"
+        class="base-input__field"
       />
-      <component :is="props.buttonImage" v-if="buttonImage" class="base-input__image" />
     </div>
   </div>
 </template>
