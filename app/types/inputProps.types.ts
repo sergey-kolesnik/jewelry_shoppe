@@ -3,4 +3,5 @@ export interface BaseInputProps {
   type: string
   placeholder: string
   label?: string
+  modelValue?: string
 }

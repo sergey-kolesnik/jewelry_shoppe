@@ -1,8 +1,16 @@
 <script lang="ts" setup>
+  import { ref } from 'vue'
   import { NAVIGATION_SECONDARY } from '~/constants/navigation'
   import BaseInput from '~/components/BaseInput.vue'
   import ArrowIcon from '~/assets/icons/ArrowIcon.vue'
   import { SOCIAL_ICONS } from '~/constants/social'
+
+  const email = ref('')
+  const saveEmail = () => {
+    console.log(email.value)
+    localStorage.setItem('newsLetterEmail', email.value)
+    email.value = ''
+  }
 </script>
 
 <template>
@@ -22,17 +30,18 @@
           </p>
         </div>
         <div class="footer__right">
-          <div class="footer__input">
+          <form action="" class="footer__form">
             <BaseInput
               id="email"
+              v-model="email"
               type="email"
               placeholder="Give an&nbsp;email, get the newsletter."
               class="footer__field"
             />
-            <button class="footer__button">
+            <button class="footer__button" type="button" @click="saveEmail">
               <ArrowIcon />
             </button>
-          </div>
+          </form>
           <div class="footer__social">
             <ul class="footer__social-list">
               <li v-for="link in SOCIAL_ICONS" :key="link.id" class="footer__social-item">
@@ -76,7 +85,7 @@
       @include text-style(16px, $dark-gray-color, 27px);
     }
 
-    &__input {
+    &__form {
       display: flex;
       width: 396px;
       padding-bottom: 13px;
