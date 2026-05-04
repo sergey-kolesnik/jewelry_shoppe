@@ -4,12 +4,18 @@
   import BaseInput from '~/components/BaseInput.vue'
   import ArrowIcon from '~/assets/icons/ArrowIcon.vue'
   import { SOCIAL_ICONS } from '~/constants/social'
+  import { isValidEmail } from '@/utils/validation'
 
   const email = ref('')
+  const errorMessage = ref('')
   const saveEmail = () => {
-    console.log(email.value)
-    localStorage.setItem('newsLetterEmail', email.value)
-    email.value = ''
+    if (isValidEmail(email.value)) {
+      localStorage.setItem('newsLetterEmail', email.value)
+      email.value = ''
+      errorMessage.value = ''
+    } else {
+      errorMessage.value = 'Введите правильно почту'
+    }
   }
 </script>
 
@@ -36,6 +42,7 @@
               v-model="email"
               type="email"
               placeholder="Give an&nbsp;email, get the newsletter."
+              :error="errorMessage"
               class="footer__field"
             />
             <button class="footer__button" type="button" @click="saveEmail">
