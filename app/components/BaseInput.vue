@@ -15,9 +15,6 @@
     </label>
 
     <div class="base-input__control">
-      <span v-if="props.error" class="base-input__error">
-        {{ props.error }}
-      </span>
       <input
         :id="props.id"
         :type="props.type"
@@ -26,6 +23,9 @@
         class="base-input__field"
         @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       />
+      <span v-if="props.error" class="base-input__error">
+        {{ props.error }}
+      </span>
     </div>
   </div>
 </template>
@@ -40,7 +40,7 @@
 
     &__error {
       position: absolute;
-      top: -24px;
+      top: 35px;
       left: 0;
       z-index: 1;
       padding: 1px 6px;
