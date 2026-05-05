@@ -6,6 +6,8 @@
   import { SOCIAL_ICONS } from '~/constants/social'
   import { isValidEmail } from '@/utils/validation'
 
+  const toggleTable = ref(false)
+
   const email = ref('')
   const errorMessage = ref('')
   const saveEmail = () => {
@@ -13,6 +15,10 @@
       localStorage.setItem('newsLetterEmail', email.value)
       email.value = ''
       errorMessage.value = ''
+      toggleTable.value = true
+      setTimeout(() => {
+        toggleTable.value = false
+      }, 3000)
     } else {
       errorMessage.value = 'Введите правильно почту'
     }
@@ -49,6 +55,9 @@
               <ArrowIcon />
             </button>
           </form>
+          <div :class="['footer__success', { 'footer__success--visible': toggleTable }]">
+            Ваша почта добавлена
+          </div>
           <div class="footer__social">
             <ul class="footer__social-list">
               <li v-for="link in SOCIAL_ICONS" :key="link.id" class="footer__social-item">
@@ -92,6 +101,10 @@
       @include text-style(16px, $dark-gray-color, 27px);
     }
 
+    &__right {
+      position: relative;
+    }
+
     &__form {
       display: flex;
       width: 396px;
@@ -106,6 +119,23 @@
 
     &__field:deep(.base-input__field)::placeholder {
       @include text-style(16px, $dark-gray-color, 27px);
+    }
+
+    &__success {
+      position: absolute;
+      top: 35px;
+      left: 0;
+      z-index: 2;
+      padding: 1px 6px;
+      pointer-events: none;
+      background: green;
+      border: 1px solid $black-color;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &__success--visible {
+      opacity: 1;
     }
 
     &__social-list {
