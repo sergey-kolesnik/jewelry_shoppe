@@ -26,47 +26,45 @@
 </script>
 
 <template>
-  <footer class="footer">
-    <div class="container footer__container">
-      <div class="footer__line">
-        <div class="footer__left">
-          <ul class="footer__links">
-            <li v-for="item in NAVIGATION_SECONDARY" :key="item.id" class="footer__links-item">
-              <a class="footer__link" :href="item.href">
-                {{ item.label }}
+  <footer class="footer container footer__container">
+    <div class="footer__line">
+      <div class="footer__left">
+        <ul class="footer__links">
+          <li v-for="item in NAVIGATION_SECONDARY" :key="item.id" class="footer__links-item">
+            <a class="footer__link" :href="item.href">
+              {{ item.label }}
+            </a>
+          </li>
+        </ul>
+        <p class="footer__legal">
+          &copy;&nbsp;<b>2021&nbsp;Shelly.</b> Terms of&nbsp;use <b>and</b> privacy policy.
+        </p>
+      </div>
+      <div class="footer__right">
+        <form action="" class="footer__form">
+          <BaseInput
+            id="email"
+            v-model="email"
+            type="email"
+            placeholder="Give an&nbsp;email, get the newsletter."
+            :error="errorMessage"
+            class="footer__field"
+          />
+          <button class="footer__button" type="button" @click="saveEmail">
+            <ArrowIcon />
+          </button>
+        </form>
+        <div :class="['footer__success', { 'footer__success--visible': toggleTable }]">
+          Ваша почта добавлена
+        </div>
+        <div class="footer__social">
+          <ul class="footer__social-list">
+            <li v-for="link in SOCIAL_ICONS" :key="link.id" class="footer__social-item">
+              <a :href="link.href" class="footer__social-link">
+                <component :is="link.icon" class="footer__social-image" />
               </a>
             </li>
           </ul>
-          <p class="footer__legal">
-            &copy;&nbsp;<b>2021&nbsp;Shelly.</b> Terms of&nbsp;use <b>and</b> privacy policy.
-          </p>
-        </div>
-        <div class="footer__right">
-          <form action="" class="footer__form">
-            <BaseInput
-              id="email"
-              v-model="email"
-              type="email"
-              placeholder="Give an&nbsp;email, get the newsletter."
-              :error="errorMessage"
-              class="footer__field"
-            />
-            <button class="footer__button" type="button" @click="saveEmail">
-              <ArrowIcon />
-            </button>
-          </form>
-          <div :class="['footer__success', { 'footer__success--visible': toggleTable }]">
-            Ваша почта добавлена
-          </div>
-          <div class="footer__social">
-            <ul class="footer__social-list">
-              <li v-for="link in SOCIAL_ICONS" :key="link.id" class="footer__social-item">
-                <a :href="link.href" class="footer__social-link">
-                  <component :is="link.icon" class="footer__social-image" />
-                </a>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
