@@ -1,10 +1,10 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import { NAVIGATION_SECONDARY } from '~/constants/navigation'
   import BaseInput from '~/components/BaseInput.vue'
   import ArrowIcon from '~/assets/icons/ArrowIcon.vue'
-  import { SOCIAL_ICONS } from '~/constants/social'
-  import { isValidEmail } from '@/utils/validation'
+  import { isValidEmail } from '~/utils/validation'
+  import FooterSocial from '~/components/FooterSocial.vue'
+  import FooterLinks from '~/components/FooterLinks.vue'
 
   const toggleTable = ref(false)
   const email = ref('')
@@ -31,13 +31,7 @@
   <footer class="footer container footer__container">
     <div class="footer__line">
       <div class="footer__left">
-        <ul class="footer__links">
-          <li v-for="item in NAVIGATION_SECONDARY" :key="item.id" class="footer__links-item">
-            <a class="footer__link" :href="item.href">
-              {{ item.label }}
-            </a>
-          </li>
-        </ul>
+        <FooterLinks class="footer__links" />
         <p class="footer__legal">
           &copy;&nbsp;<b>2021&nbsp;Shelly.</b> Terms of&nbsp;use <b>and</b> privacy policy.
         </p>
@@ -58,15 +52,7 @@
         <div :class="['footer__success', { 'footer__success--visible': toggleTable }]">
           Ваша почта добавлена
         </div>
-        <div class="footer__social">
-          <ul class="footer__social-list">
-            <li v-for="link in SOCIAL_ICONS" :key="link.id" class="footer__social-item">
-              <a :href="link.href" class="footer__social-link">
-                <component :is="link.icon" class="footer__social-image" />
-              </a>
-            </li>
-          </ul>
-        </div>
+        <FooterSocial class="footer__social" />
       </div>
     </div>
   </footer>
@@ -82,20 +68,7 @@
       border-top: 1px solid $gray-color;
     }
 
-    &__links {
-      display: flex;
-      margin-bottom: 48px;
-    }
-
-    &__links-item:not(:last-child) {
-      margin-right: 41px;
-    }
-
-    &__link {
-      text-transform: uppercase;
-    }
-
-    &__link,
+    &__links:deep(.footer-links__link),
     &__legal {
       @include text-style(16px, $dark-gray-color, 27px);
     }
@@ -135,15 +108,6 @@
 
     &__success--visible {
       opacity: 1;
-    }
-
-    &__social-list {
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    &__social-item:not(:last-child) {
-      margin-right: 30px;
     }
   }
 </style>
