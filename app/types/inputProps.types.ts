@@ -1,7 +1,7 @@
 export interface BaseInputProps {
   id: string
-  type: string
   placeholder: string
+  type?: string
   error?: string
   label?: string
   modelValue?: string

@@ -7,18 +7,20 @@
   import { isValidEmail } from '@/utils/validation'
 
   const toggleTable = ref(false)
-
   const email = ref('')
   const errorMessage = ref('')
+  let timeToogleTable = 3000
+  let emailStorageKey = 'newsLetterEmail'
+
   const saveEmail = () => {
     if (isValidEmail(email.value)) {
-      localStorage.setItem('newsLetterEmail', email.value)
+      localStorage.setItem(emailStorageKey, email.value)
       email.value = ''
       errorMessage.value = ''
       toggleTable.value = true
       setTimeout(() => {
         toggleTable.value = false
-      }, 3000)
+      }, timeToogleTable)
     } else {
       errorMessage.value = 'Введите правильно почту'
     }
@@ -45,7 +47,6 @@
           <BaseInput
             id="email"
             v-model="email"
-            type="email"
             placeholder="Give an&nbsp;email, get the newsletter."
             :error="errorMessage"
             class="footer__field"
@@ -121,7 +122,7 @@
 
     &__success {
       position: absolute;
-      top: 35px;
+      top: 40px;
       left: 0;
       z-index: 2;
       padding: 1px 6px;

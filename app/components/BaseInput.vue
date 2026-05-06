@@ -40,7 +40,7 @@
 
     &__error {
       position: absolute;
-      top: 35px;
+      top: 40px;
       left: 0;
       z-index: 1;
       padding: 1px 6px;
