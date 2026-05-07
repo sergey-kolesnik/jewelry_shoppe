@@ -10,3 +10,10 @@
     <label :for="props.for" class="checkbox__label">{{ props.labelText }}</label>
   </div>
 </template>
+
+<style lang="scss" scoped>
+  .checkbox {
+    display: inline-flex;
+    align-items: center;
+  }
+</style>

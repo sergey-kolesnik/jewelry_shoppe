@@ -165,6 +165,10 @@
       }
     }
 
+    &__checkbox:deep(.checkbox__input) {
+      margin-right: 4px;
+    }
+
     &__field:deep(.base-input__field) {
       width: 100%;
     }
