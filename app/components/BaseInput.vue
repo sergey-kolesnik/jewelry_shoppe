@@ -23,7 +23,10 @@
         class="base-input__field"
         @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       />
-      <span v-if="props.error" class="base-input__error">
+      <span
+        v-show="props.error"
+        :class="['base-input__error', { 'base-input__error--visible': !!props.error }]"
+      >
         {{ props.error }}
       </span>
     </div>
@@ -47,6 +50,16 @@
       white-space: nowrap;
       background: red;
       border: 1px solid $black-color;
+
+      @include text-style(16px, $black-color, 27px);
+
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    &__error--visible {
+      visibility: visible;
+      opacity: 1;
     }
   }
 </style>

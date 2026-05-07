@@ -17,6 +17,11 @@
     display: flex;
     margin-bottom: 48px;
 
+    @media (max-width: $breakpoint-m) {
+      flex-direction: column;
+      margin-bottom: 40px;
+    }
+
     &__item:not(:last-child) {
       margin-right: 41px;
     }
