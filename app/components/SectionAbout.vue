@@ -11,7 +11,11 @@
       </p>
       <h3 class="about__subtitle">Top trends</h3>
       <picture>
-        <source media="(max-width: 768px)" srcset="../assets/images/aboutMobile.webp" />
+        <source
+          class="about__image--mobile"
+          media="(max-width: 768px)"
+          srcset="../assets/images/aboutMobile.webp"
+        />
         <img class="about__image" src="../assets/images/about.webp" alt="" />
       </picture>
       <p class="about__content">
@@ -26,6 +30,10 @@
 <style lang="scss" scoped>
   .about {
     margin-bottom: 250px;
+
+    @media (max-width: $breakpoint-m) {
+      margin-bottom: 32px;
+    }
 
     &__container {
       width: 100%;
@@ -96,7 +104,7 @@
       border-radius: 8px;
 
       @media (max-width: $breakpoint-m) {
-        width: 288px;
+        width: 100%;
         height: 200px;
         margin-bottom: 16px;
       }
