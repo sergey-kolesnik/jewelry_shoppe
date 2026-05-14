@@ -6,29 +6,25 @@
   import FooterSocial from '~/components/FooterSocial.vue'
   import FooterLinks from '~/components/FooterLinks.vue'
   import BaseCheckbox from '~/components/BaseCheckbox.vue'
+  import BaseButton from '~/components/BaseButton.vue'
 
-  const toggleTable = ref(false)
+  const showSuccessMessage = ref(false)
   const email = ref('')
   const errorMessage = ref('')
-  const showError = ref(false)
-  let timeTable = 3000
-  let emailStorageKey = 'newsLetterEmail'
+  const SUCCESS_MESSAGE_TIMEOUT = 3000
+  const EMAIL_STORAGE_KEY = 'newsLetterEmail'
 
   const saveEmail = () => {
     if (isValidEmail(email.value)) {
-      localStorage.setItem(emailStorageKey, email.value)
+      localStorage.setItem(EMAIL_STORAGE_KEY, email.value)
       email.value = ''
       errorMessage.value = ''
-      toggleTable.value = true
+      showSuccessMessage.value = true
       setTimeout(() => {
-        toggleTable.value = false
-      }, timeTable)
+        showSuccessMessage.value = false
+      }, SUCCESS_MESSAGE_TIMEOUT)
     } else {
       errorMessage.value = 'Введите правильно почту'
-      showError.value = true
-      setTimeout(() => {
-        showError.value = false
-      }, timeTable)
     }
   }
 </script>
@@ -48,12 +44,12 @@
             id="email"
             v-model="email"
             placeholder="Give an&nbsp;email, get the newsletter."
-            :error="showError ? errorMessage : ''"
+            :error="errorMessage"
             class="footer__field"
           />
-          <button class="footer__button" type="button" @click="saveEmail">
+          <BaseButton type="submit" variant="transparent" class="footer__button">
             <ArrowIcon class="footer__button-icon" />
-          </button>
+          </BaseButton>
         </form>
         <BaseCheckbox
           id="checkbox"
@@ -61,7 +57,7 @@
           labelText="i&nbsp;agree to&nbsp;the website&rsquo;s terms and conditions"
           class="footer__checkbox"
         />
-        <div :class="['footer__success', { 'footer__success--visible': toggleTable }]">
+        <div :class="['footer__success', { 'footer__success--visible': showSuccessMessage }]">
           Ваша почта добавлена
         </div>
         <FooterSocial class="footer__social" />

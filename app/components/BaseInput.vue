@@ -25,7 +25,7 @@
       />
       <span
         v-show="props.error"
-        :class="['base-input__error', { 'base-input__error--visible': !!props.error }]"
+        :class="['base-input__error', { 'base-input__error--visible': props.error }]"
       >
         {{ props.error }}
       </span>
