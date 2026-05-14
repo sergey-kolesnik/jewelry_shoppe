@@ -13,6 +13,7 @@
   const errorMessage = ref('')
   const SUCCESS_MESSAGE_TIMEOUT = 3000
   const EMAIL_STORAGE_KEY = 'newsLetterEmail'
+  const isChecked = ref(false)
 
   const saveEmail = () => {
     if (isValidEmail(email.value)) {
@@ -53,6 +54,7 @@
         </form>
         <BaseCheckbox
           id="checkbox"
+          v-model="isChecked"
           for="checkbox"
           labelText="i&nbsp;agree to&nbsp;the website&rsquo;s terms and conditions"
           class="footer__checkbox"

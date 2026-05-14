@@ -5,7 +5,7 @@
 <template>
   <div class="social">
     <p class="social__follow">Follow&nbsp;us</p>
-    <div class="social__line"></div>
+    <div class="social__line" />
     <ul class="social__list">
       <li v-for="link in SOCIAL_ICONS" :key="link.id" class="social__item">
         <a :href="link.href" class="social__link">
