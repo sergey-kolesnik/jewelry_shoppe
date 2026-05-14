@@ -43,7 +43,7 @@
         </p>
       </div>
       <div class="footer__right">
-        <form action="" class="footer__form">
+        <form action="" class="footer__form" @submit.prevent="saveEmail">
           <BaseInput
             id="email"
             v-model="email"
