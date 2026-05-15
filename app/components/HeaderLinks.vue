@@ -1,10 +1,10 @@
 <script lang="ts" setup>
-  import { NAVIGATION_ITEMS_HEADER } from '@/constants/navigationHeader'
+  import { NAVIGATION_PRIMARY } from '~/constants/navigation'
 </script>
 <template>
   <nav class="header__nav nav">
     <ul class="nav__list">
-      <li v-for="item in NAVIGATION_ITEMS_HEADER" :key="item.id" class="nav__item">
+      <li v-for="item in NAVIGATION_PRIMARY" :key="item.id" class="nav__item">
         <a :href="item.href" class="nav__link">
           {{ item.label }}
         </a>

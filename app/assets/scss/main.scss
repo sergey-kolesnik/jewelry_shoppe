@@ -35,13 +35,6 @@ ul {
   list-style: none;
 }
 
-button {
-  padding: 0;
-  cursor: pointer;
-  background-color: transparent;
-  border: none;
-}
-
 p,
 h1,
 h2,
@@ -50,6 +43,14 @@ figure,
 figcaption {
   padding: 0;
   margin: 0;
+}
+
+input {
+  padding: 0;
+  outline: none;
+  background: transparent;
+  border: none;
+  box-shadow: none;
 }
 
 .wrapper {
@@ -61,6 +62,7 @@ figcaption {
 }
 
 .container {
+  width: 96%;
   max-width: 346px;
   padding: 0 16px;
   margin: 0 auto;
