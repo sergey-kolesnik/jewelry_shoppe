@@ -1,6 +1,6 @@
 <script lang="ts" setup>
   import { ref } from 'vue'
-  import LogoIcon from '@/assets/icons/LogoIcon.vue'
+  import LogoIcon from '~/assets/icons/LogoIcon.vue'
   import HeaderLinks from '~/components/HeaderLinks.vue'
   import HeaderIcons from '~/components/HeaderIcons.vue'
   import BurgerIcon from '~/assets/icons/BurgerIcon.vue'

@@ -1,4 +1,4 @@
-import { useApiFetch } from '@/composable/api/useApiFetch'
+import { useApiFetch } from '~/composable/api/useApiFetch'
 import type { Photo } from '~/types/imageSlider.type'
 
 export const useGetAllImages = (options: { limit?: number } = {}) => {
