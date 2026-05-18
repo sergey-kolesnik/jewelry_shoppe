@@ -1,8 +1,15 @@
+<script setup lang="ts">
+  import BaseButton from './BaseButton.vue'
+</script>
+
 <template>
   <div class="slide-overlay">
     <h2 class="slide-overlay__title">Gold big hoops</h2>
     <p class="slide-overlay__price">$&nbsp;68,00</p>
-    <button class="slide-overlay__button">View Product</button>
+    <!-- <button class="slide-overlay__button">View Product</button> -->
+    <BaseButton type="button" variant="transparent" class="slide-overlay__button">
+      View Product
+    </BaseButton>
   </div>
 </template>
 
