@@ -1,3 +1,3 @@
-export interface BasePaginatorProps {
+export interface PaginatorProps {
   totalCountProduct: number
 }

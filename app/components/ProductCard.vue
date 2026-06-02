@@ -34,6 +34,9 @@
 
     &__title {
       margin-bottom: 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
 
       @include text-style(20px, $black-color, 26px);
     }

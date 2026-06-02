@@ -3,7 +3,8 @@
   import { useGetAllProducts } from '~/composable/api/products/getAllProducts'
   import ProductCard from '~/components/ProductCard.vue'
   import ProductFilters from '~/components/ProductFilters.vue'
-  import BasePaginator from '~/components/BasePaginator.vue'
+  import Paginator from '~/components/Paginator.vue'
+  import { ITEMS_IN_PAGE } from '~/constants/pagination'
   import { usePage } from '~/composable/usePage'
 
   const { queryPage, currentPage, replacePage } = usePage()
@@ -15,7 +16,10 @@
   const { data: products } = await useGetAllProducts()
 
   const paginatedProducts = computed(() =>
-    products.value?.slice((currentPage.value - 1) * 6, currentPage.value * 6),
+    products.value?.slice(
+      (currentPage.value - 1) * ITEMS_IN_PAGE,
+      currentPage.value * ITEMS_IN_PAGE,
+    ),
   )
 </script>
 
@@ -27,15 +31,17 @@
         <aside class="shop__aside">
           <ProductFilters />
         </aside>
-        <div class="shop__products">
-          <ProductCard
-            v-for="product in paginatedProducts"
-            :id="product.id"
-            :key="product.id"
-            :product="product"
-            class="shop__product"
-          />
-          <BasePaginator :totalCountProduct="products?.length || 0" />
+        <div class="shop__content">
+          <div class="shop__products">
+            <ProductCard
+              v-for="product in paginatedProducts"
+              :id="product.id"
+              :key="product.id"
+              :product="product"
+              class="shop__product"
+            />
+          </div>
+          <Paginator :totalCountProduct="products?.length || 0" class="shop__paginator" />
         </div>
       </div>
     </div>
@@ -49,25 +55,39 @@
       gap: 31px;
     }
 
-    &__products {
+    &__content {
       display: flex;
-      flex-wrap: wrap;
-      gap: 70px 24px;
-    }
-  }
-</style>
-
-<style scoped lang="scss">
-  .shop {
-    &__wrapper {
-      display: flex;
-      gap: 31px;
+      flex: 1;
+      flex-direction: column;
+      align-items: center;
     }
 
     &__products {
       display: flex;
       flex-wrap: wrap;
       gap: 70px 24px;
+      min-height: 854px;
+      margin-bottom: 86px;
+    }
+
+    &__paginator {
+      margin-bottom: 118px;
+    }
+
+    @keyframes slide {
+      0% {
+        opacity: 0;
+        transform: scale(0.8) rotate(-5deg);
+      }
+
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    .shop__product {
+      animation: slide 0.5s ease-out;
     }
   }
 </style>
