@@ -4,6 +4,7 @@
   import ProductCard from '~/components/ProductCard.vue'
   import ProductFilters from '~/components/ProductFilters.vue'
   import Paginator from '~/components/Paginator.vue'
+  import ItemsPerPageSelect from '~/components/ItemsPerPageSelect.vue'
   import { ITEMS_IN_PAGE } from '~/constants/pagination'
   import { usePage } from '~/composable/usePage'
 
@@ -32,6 +33,7 @@
           <ProductFilters />
         </aside>
         <div class="shop__content">
+          <ItemsPerPageSelect class="shop__per-page" />
           <div class="shop__products">
             <ProductCard
               v-for="product in paginatedProducts"
@@ -59,7 +61,10 @@
       display: flex;
       flex: 1;
       flex-direction: column;
-      align-items: center;
+    }
+
+    &__per-page {
+      align-self: flex-end;
     }
 
     &__products {
