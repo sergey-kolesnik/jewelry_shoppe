@@ -16,6 +16,13 @@
     if (currentPage.value > 1) {
       result.push('<')
     }
+    if (currentPage.value >= 3) {
+      result.push(currentPage.value - 2)
+    }
+
+    if (currentPage.value >= 2) {
+      result.push(currentPage.value - 1)
+    }
 
     for (let i = 0; i < 3; i++) {
       const page = currentPage.value + i
