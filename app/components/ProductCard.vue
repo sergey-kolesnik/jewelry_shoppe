@@ -28,7 +28,8 @@
     width: calc((100% - (2 * 24px)) / 3);
 
     &__image {
-      // height: 300px;
+      width: 100%;
+      aspect-ratio: 1 / 1;
       margin-bottom: 24px;
       border-radius: 8px;
     }
