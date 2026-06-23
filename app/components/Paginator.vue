@@ -2,13 +2,14 @@
   import { computed } from 'vue'
   import { usePage } from '~/composable/usePage'
   import BaseButton from './BaseButton.vue'
-  import { ITEMS_IN_PAGE } from '~/constants/pagination.js'
   import type { PaginatorProps } from '~/types/paginatorProps.types'
 
   const props = defineProps<PaginatorProps>()
   const { currentPage, goToPage, prev, next } = usePage()
 
-  const totalCountPage = computed(() => Math.ceil((props.totalCountProduct ?? 0) / ITEMS_IN_PAGE))
+  const totalCountPage = computed(() =>
+    Math.ceil((props.totalCountProduct ?? 0) / props.itemsPerPage),
+  )
 
   const buttons = computed(() => {
     const result: (number | string)[] = []

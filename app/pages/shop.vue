@@ -1,14 +1,14 @@
 <script setup lang="ts">
-  import { computed } from 'vue'
+  import { computed, ref } from 'vue'
   import { useGetAllProducts } from '~/composable/api/products/getAllProducts'
   import ProductCard from '~/components/ProductCard.vue'
   import ProductFilters from '~/components/ProductFilters.vue'
   import Paginator from '~/components/Paginator.vue'
   import ItemsPerPageSelect from '~/components/ItemsPerPageSelect.vue'
-  import { ITEMS_IN_PAGE } from '~/constants/pagination'
   import { usePage } from '~/composable/usePage'
 
   const { queryPage, currentPage, replacePage } = usePage()
+  const itemsInPage = ref(6)
 
   if (!queryPage.value) {
     replacePage()
@@ -18,8 +18,8 @@
 
   const paginatedProducts = computed(() =>
     products.value?.slice(
-      (currentPage.value - 1) * ITEMS_IN_PAGE,
-      currentPage.value * ITEMS_IN_PAGE,
+      (currentPage.value - 1) * itemsInPage.value,
+      currentPage.value * itemsInPage.value,
     ),
   )
 </script>
@@ -33,7 +33,7 @@
           <ProductFilters />
         </aside>
         <div class="shop__content">
-          <ItemsPerPageSelect class="shop__per-page" />
+          <ItemsPerPageSelect v-model="itemsInPage" class="shop__per-page" />
           <div class="shop__products">
             <ProductCard
               v-for="product in paginatedProducts"
@@ -43,7 +43,11 @@
               class="shop__product"
             />
           </div>
-          <Paginator :totalCountProduct="products?.length || 0" class="shop__paginator" />
+          <Paginator
+            :totalCountProduct="products?.length || 0"
+            class="shop__paginator"
+            :itemsPerPage="itemsInPage"
+          />
         </div>
       </div>
     </div>
