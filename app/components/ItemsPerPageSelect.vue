@@ -20,6 +20,7 @@
         v-for="(value, index) in ITEMS_PER_PAGE_OPTIONS"
         :key="index"
         class="per-page__item"
+        :class="{ 'per-page__item--active': value === modelValue }"
         @click="handleClick(value)"
       >
         {{ value }}
@@ -44,6 +45,11 @@
       cursor: pointer;
 
       @include text-style(16px, $black-color, 16px);
+
+      &--active {
+        color: $accent-color;
+        text-shadow: 0 0 6px rgba($accent-color, 0.6);
+      }
     }
 
     &__item:not(:last-child) {
