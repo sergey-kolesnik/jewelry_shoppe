@@ -1,0 +1,11 @@
+import { useApiFetch } from '@/composable/api/useApiFetch'
+import type { Product } from '~/types/product.types'
+
+export const useGetAllProducts = () => {
+  return useApiFetch<Product[]>('/products', {
+    baseURL: 'https://shoppe-api-eleet.amvera.io',
+    headers: {
+      Authorization: 'amigo',
+    },
+  })
+}
